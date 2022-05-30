@@ -6,15 +6,27 @@ import secret
 
 intents = discord.Intents.all()
 
-bot = commands.Bot(command_prefix=["ss "],intents=intents) # ,help_command=None
+bot = commands.Bot(command_prefix=["ss "],intents=intents,help_command=None)
 
 @bot.event
 async def on_ready():
     print("ready")
 
 @bot.command()
+async def help(ctx):
+    em = discord.Embed(title="Help",description="Following is the list of commands avaialble:",color=discord.Color.green())
+    em.add_field(name="Ping",value="`ss ping`")
+    em.add_field(name="Search",value="`ss search`")
+    em.add_field(name="Source",value="`ss source`")
+    await ctx.send(embed=em)
+
+@bot.command()
 async def ping(ctx):
     await ctx.send(f"{round(bot.latency,3)}ms")
+
+@bot.command()
+async def source(ctx):
+    await ctx.send("https://github.com/jsmsj/sscampuscare")
 
 @bot.group(invoke_without_command = True)
 @commands.guild_only()
@@ -59,7 +71,7 @@ async def admn(ctx,text=None):
 
 @search.command()
 @commands.guild_only()
-async def name(ctx,text):
+async def name(ctx,text=None):
     await ctx.send("Under development")
 
 

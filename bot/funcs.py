@@ -33,7 +33,9 @@ def make_data_tuple(data:dict):
 
 def give_help(stuff):
     if stuff == "search":
-        em = discord.Embed(title="Hi",color=discord.Color.green())
+        em = discord.Embed(title="Help for Search Command",color=discord.Color.green(),description="Available sub-commands under this command:")
+        em.add_field(name="Search for student/parent using admission number",value="`ss search admn 1234` or `ss search admn p1234` or `ss search admn s1234`",inline=False)
+        em.add_field(name="Search for student/parent using name (Not Recommened)",value="`ss search name John Doe`\nThis is not recommened because the database may not have the name of all people",inline=False)
         return em
 
 async def search_online_student_details(ls):
