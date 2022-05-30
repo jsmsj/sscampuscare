@@ -81,7 +81,7 @@ async def give_details_from_admn(ls):
     file = discord.File(r"./userdata/images/image.png")
     check = em
     if len(ls) == 0: return em
-    db = await aiosqlite.connect(r"./userdata/data.db")
+    db = await aiosqlite.connect(r"./userdata/database.db")
     if not ls[0] or ls[0].lower() =="s":
         cursor = await db.execute(f'SELECT * FROM students WHERE userid="S{ls[1]}" and usertype=2')
         data = await cursor.fetchone()

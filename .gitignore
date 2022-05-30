@@ -1,6 +1,7 @@
 *.jpg
 venv/
 data.db
+database.db
 *__pycache__*
 std.txt
 bot/secret.py
