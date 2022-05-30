@@ -1,5 +1,5 @@
 *.jpg
 venv/
-*.db
-/__pycache__/
+# data.db
+*__pycache__*
 std.txt

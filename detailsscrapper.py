@@ -139,7 +139,7 @@ def students_records():
         data = hp.get_user_data(f"s{str(i).zfill(4)}")
         if data:
             hp.update_db(db,hp.make_data_tuple(data))
-            hp.download_image(f"https://www.sscampuscare.in/StudentPhoto/S{data['EmployeeIDStudentID']}.jpg", data['EmployeeIDStudentID'])
+            hp.download_image(f"https://www.sscampuscare.in/StudentPhoto/S{data['EmployeeIDStudentID']}.jpg", data['EmployeeIDStudentID'],"student")
             val = "yes"
         else:
             val = "no"
@@ -163,7 +163,7 @@ def parents_records():
         data = hp.get_user_data(f"p{str(i).zfill(4)}")
         if data:
             hp.update_db_parents(db,hp.make_data_tuple(data))
-            hp.download_image(f"https://www.sscampuscare.in/FatherPhoto/S{data['EmployeeIDStudentID']}.jpg", data['EmployeeIDStudentID'])
+            hp.download_image(f"https://www.sscampuscare.in/FatherPhoto/F{data['EmployeeIDStudentID']}.jpg", data['EmployeeIDStudentID'],"parent")
             val = "yes"
         else:
             val = "no"

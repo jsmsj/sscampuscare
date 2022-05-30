@@ -35,8 +35,12 @@ def image_exists(path):
     x = requests.get(path)
     return x.status_code != 404
 
-def download_image(url,name):
+def download_image(url,name,type):
     r = requests.get(url)
     if r.status_code != 404:
-        with open(f"./userdata/images/{name}.jpg","wb") as file:
-            file.write(r.content)
+        if type == "student":
+            with open(f"./userdata/images/{name}.jpg","wb") as file:
+                file.write(r.content)
+        elif type=="parent":
+            with open(f"./userdata/pimages/{name}.jpg","wb") as file:
+                file.write(r.content)
